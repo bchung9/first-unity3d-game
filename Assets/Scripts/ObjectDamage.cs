@@ -3,24 +3,15 @@ using UnityEngine;
 public class TakingDamage : MonoBehaviour
 {
     public PlayerHealth playerHealth;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int damage = 1;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
+        Debug.Log("3D Collision detected with: " + collision.gameObject.name);
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
         if(collision.gameObject.tag == "Player")
         {
-            playerHealth.TakeDamage(1);
+            playerHealth.TakeDamage(damage);
         }
     }
-
 }

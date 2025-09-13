@@ -7,8 +7,8 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 3;
 
     public TextMeshProUGUI gameoverText;
+    public GameManager gameManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
        health = maxHealth; 
@@ -19,10 +19,9 @@ public class PlayerHealth : MonoBehaviour
         health -= amount;
         if(health <= 0)
         {
-            gameoverText.text = "Game Over!";
+            gameManager.EndGame();
             Debug.Log("Game Over!");
             Destroy(gameObject);
         }
-
     }
 }
